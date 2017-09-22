@@ -137,9 +137,11 @@ stock CurrentTime()
 
 // ======================================================================
 
-stock KickPlayer(playerid)
+stock KickPlayer(playerid, powod[])
 {
-	return SetTimerEx("PlayerKick", 100, false, "i", playerid);
+	SendClientMessage(playerid, -1, powod);
+	SetTimerEx("PlayerKick", 100, false, "i", playerid);
+	return 1;
 }
 forward PlayerKick(playerid);
 public PlayerKick(playerid) return Kick(playerid);
